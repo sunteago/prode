@@ -19,7 +19,12 @@ export function CountryFlag(props: React.PropsWithChildren<CountryFlagProps>) {
         props.disabled && styles.disabled
       )}
     >
-      <img src={`/flags/${props.code}.png`} />
+      <img
+        src={`/flags/${props.code}.png`}
+        onError={(e) => {
+          (e.currentTarget as HTMLImageElement).src = "/flags/_placeholder.svg";
+        }}
+      />
     </div>
   );
 }

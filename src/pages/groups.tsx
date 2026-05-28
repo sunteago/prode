@@ -202,7 +202,10 @@ export default function Home(props: HomeProps) {
               "GROUP_F",
               "GROUP_G",
               "GROUP_H",
-            ].map((group) => (
+              "GROUP_I",
+              "GROUP_J",
+              "GROUP_K",
+              "GROUP_L",            ].map((group) => (
               <Card key={group} title={group.replace("GROUP_", "GRUPO ")}>
                 <CardContent>
                   {matches

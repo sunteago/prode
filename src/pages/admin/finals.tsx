@@ -477,7 +477,10 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
           "GROUP_F",
           "GROUP_G",
           "GROUP_H",
-        ],
+          "GROUP_I",
+          "GROUP_J",
+          "GROUP_K",
+          "GROUP_L",        ],
       },
     },
     include: {

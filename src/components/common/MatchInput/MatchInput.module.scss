@@ -2,25 +2,32 @@
   padding: 8px;
   display: flex;
   align-items: center;
-  position: relative;
   height: 52px;
+  gap: 4px;
 
-  label {
-    font-size: 14px;
-    white-space: nowrap;
-    overflow-x: hidden;
-    margin: 0 4px;
-    // max-width: 50px;
+  .leftTeam,
+  .rightTeam {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+    gap: 4px;
+
+    label {
+      font-size: 14px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      min-width: 0;
+    }
   }
 
-  label:last-of-type {
-    margin-left: auto;
+  .rightTeam {
+    justify-content: flex-end;
   }
 
   .centerContainer {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
     align-items: center;

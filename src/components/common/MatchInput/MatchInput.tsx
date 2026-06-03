@@ -111,8 +111,10 @@ export function MatchInput(props: React.PropsWithChildren<MatchInputProps>) {
 
   return (
     <div className={className(props.className, styles.matchInput)}>
-      <CountryFlag code={countryLeft?.code} />
-      <label>{countryLeft?.name}</label>
+      <div className={styles.leftTeam}>
+        <CountryFlag code={countryLeft?.code} />
+        <label>{countryLeft?.name}</label>
+      </div>
       <div className={styles.centerContainer}>
         <div className={styles.inputsContainer}>
           <input
@@ -169,8 +171,10 @@ export function MatchInput(props: React.PropsWithChildren<MatchInputProps>) {
           <div className={styles.date}>{date}</div>
         )}
       </div>
-      <label>{countryRight?.name}</label>
-      <CountryFlag code={countryRight?.code} />
+      <div className={styles.rightTeam}>
+        <label>{countryRight?.name}</label>
+        <CountryFlag code={countryRight?.code} />
+      </div>
     </div>
   );
 }

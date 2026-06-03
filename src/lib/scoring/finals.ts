@@ -50,16 +50,22 @@ export const matchFinalResultStatus = (
     match.goalsRight === userMatch.goalsRight
   )
     return "GOALS_MATCH";
-  else if (
-    (match.goalsLeft >= match.goalsRight &&
-      userMatch.goalsLeft >= userMatch.goalsRight) ||
-    (match.goalsLeft <= match.goalsRight &&
-      userMatch.goalsLeft <= userMatch.goalsRight)
-  ) {
+
+  const actualLeft = match.goalsLeft > match.goalsRight;
+  const actualRight = match.goalsLeft < match.goalsRight;
+  const actualDraw = match.goalsLeft === match.goalsRight;
+  const userLeft = userMatch.goalsLeft > userMatch.goalsRight;
+  const userRight = userMatch.goalsLeft < userMatch.goalsRight;
+  const userDraw = userMatch.goalsLeft === userMatch.goalsRight;
+
+  if (
+    (actualLeft && userLeft) ||
+    (actualRight && userRight) ||
+    (actualDraw && userDraw)
+  )
     return "WINNER_MATCH";
-  } else {
-    return "WRONG";
-  }
+
+  return "WRONG";
 };
 
 // ---------------------------------------------------------------------------
@@ -319,7 +325,8 @@ export function finalMatchPoints(
 
     if (match.penaltisLeft > match.penaltisRight) {
       //gana left en penales
-
+      // el usuario DEBE haber predicho empate con penales para sumar puntos;
+      // si predijo victoria directa (sin penales) no acierta al ganador por penales → 0
       if (
         userMatch.goalsLeft === userMatch.goalsRight &&
         (userMatch.penaltisLeft || userMatch.penaltisLeft === 0) &&
@@ -333,8 +340,7 @@ export function finalMatchPoints(
             userMatch.goalsLeft === match.goalsLeft &&
             userMatch.goalsRight === match.goalsRight
           ) {
-            //predice el ganador sin penales exactos
-            //pero los goles estan ok
+            //goles exactos pero penales no exactos
             return room.pointsGoals;
           }
 
@@ -342,17 +348,12 @@ export function finalMatchPoints(
         }
       }
 
-      if (userMatch.goalsLeft > userMatch.goalsRight) {
-        //predice que gana left
-        return room.pointsWinner;
-      }
-
       return 0;
     }
 
     if (match.penaltisLeft < match.penaltisRight) {
-      //gana right en paneles
-
+      //gana right en penales
+      // el usuario DEBE haber predicho empate con penales para sumar puntos
       if (
         userMatch.goalsLeft === userMatch.goalsRight &&
         (userMatch.penaltisLeft || userMatch.penaltisLeft === 0) &&
@@ -366,18 +367,12 @@ export function finalMatchPoints(
             userMatch.goalsLeft === match.goalsLeft &&
             userMatch.goalsRight === match.goalsRight
           ) {
-            //predice el ganador sin penales exactos
-            //pero los goles estan ok
+            //goles exactos pero penales no exactos
             return room.pointsGoals;
           }
 
           return room.pointsWinner;
         }
-      }
-
-      if (userMatch.goalsLeft < userMatch.goalsRight) {
-        //predice que gana right
-        return room.pointsWinner;
       }
 
       return 0;

@@ -574,7 +574,7 @@ export const FINALS_SCORING = [
     expected: 0,
   },
   {
-    name: "pinned current behavior: user predicts regulation left win (2-1) but actual is draw resolved by left winning on pens → pointsWinner (gets credit for correct winner side)",
+    name: "user predicts regulation left win (2-1) but actual is draw resolved by left winning on pens → 0 points (must predict via penalties to score)",
     room: DEFAULT_ROOM,
     userMatch: makeFinalUserMatch(
       "m1",
@@ -591,7 +591,7 @@ export const FINALS_SCORING = [
         countryRightId: "ARG",
       })
     ),
-    expected: 1, // code awards pointsWinner because user.goalsLeft > user.goalsRight and left wins match
+    expected: 0,
   },
   {
     name: "wrong outcome: user predicts right wins but actual left wins via penalties → 0 points",
@@ -696,24 +696,24 @@ export const FINALS_SCORING = [
     expected: 0,
   },
   {
-    name: "pinned current behavior: user predicts regulation right win (0-2) but actual is draw resolved by right winning on pens → pointsWinner",
+    name: "user predicts regulation right win (0-2) but actual is draw resolved by right winning on pens → 0 points (must predict via penalties to score)",
     room: DEFAULT_ROOM,
     userMatch: makeFinalUserMatch(
       "m1",
       0,
-      2, // user predicts right wins in regulation
+      2,
       "BRA",
       "ARG",
       makeMatch({
         goalsLeft: 1,
         goalsRight: 1,
         penaltisLeft: 3,
-        penaltisRight: 5, // right wins on pens
+        penaltisRight: 5,
         countryLeftId: "BRA",
         countryRightId: "ARG",
       })
     ),
-    expected: 1, // gets credit for correct winner side
+    expected: 0,
   },
   {
     name: "pinned current behavior: actual draw with equal penalty counts (tied pens) → 0 points (degenerate case, cannot happen in real football)",

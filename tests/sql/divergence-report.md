@@ -24,13 +24,13 @@ No divergences observed.
 | 12 | FINALS | actual left wins regulation, user predicts draw + right winning on pens (wrong side) → 0 points | 0 | 0 | 0 | agrees |
 | 13 | FINALS | actual right wins regulation, user predicts draw + right winning on pens → pointsWinner | 1 | 1 | 0 | agrees |
 | 14 | FINALS | wrong outcome: user predicts left wins, actual is right wins → 0 points | 0 | 0 | 0 | agrees |
-| 15 | FINALS | pinned current behavior: user predicts regulation left win (2-1) but actual is draw resolved by left winning on pens → pointsWinner (gets credit for correct winner side) | 1 | 1 | 0 | agrees |
+| 15 | FINALS | user predicts regulation left win (2-1) but actual is draw resolved by left winning on pens → 0 points (must predict via penalties to score) | 0 | 0 | 0 | agrees |
 | 16 | FINALS | wrong outcome: user predicts right wins but actual left wins via penalties → 0 points | 0 | 0 | 0 | agrees |
 | 17 | FINALS | pinned current behavior, may be a bug: wrong country prediction still scores if goals match, no country check in finalMatchPoints | 3 | 3 | 0 | agrees |
 | 18 | FINALS | custom room weights: perfect regulation score → custom pointsGoals | 6 | 6 | 0 | agrees |
 | 19 | FINALS | custom room weights: exact draw with exact penalties → custom pointsPenal | 10 | 10 | 0 | agrees |
 | 20 | FINALS | wrong penalty side: actual draw right wins on pens, user predicts draw but left wins on pens → 0 points | 0 | 0 | 0 | agrees |
-| 21 | FINALS | pinned current behavior: user predicts regulation right win (0-2) but actual is draw resolved by right winning on pens → pointsWinner | 1 | 1 | 0 | agrees |
+| 21 | FINALS | user predicts regulation right win (0-2) but actual is draw resolved by right winning on pens → 0 points (must predict via penalties to score) | 0 | 0 | 0 | agrees |
 | 22 | FINALS | pinned current behavior: actual draw with equal penalty counts (tied pens) → 0 points (degenerate case, cannot happen in real football) | 0 | 0 | 0 | agrees |
 | 23 | FINALS | actual draw with no penalty info yet (draw but penaltis are null) → 0 points (match incomplete path?) | 0 | 0 | 0 | agrees |
 | 0 | GROUP | user predicts exact score → pointsGoals | 3 | 3 | 0 | agrees |

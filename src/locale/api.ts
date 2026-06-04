@@ -8,11 +8,11 @@ export function localizedText(locale: string) {
 }
 
 export function localizedCountries(locale: string) {
+  const table = (countries as Record<
+    string,
+    Record<string, { short: string; long: string }>
+  >)[locale || "es"];
   return (code: string, name: string) => {
-    if (locale && locale !== "es") {
-      //@ts-ignore
-      return countries?.[locale]?.[code];
-    }
-    return name;
+    return table?.[code]?.long ?? name;
   };
 }

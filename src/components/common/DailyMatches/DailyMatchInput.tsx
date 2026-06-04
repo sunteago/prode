@@ -168,7 +168,7 @@ export function DailyMatchInput(
     <div className={className(props.className, styles.dailyMatchInput)}>
       <div className={styles.leftTeam}>
         <CountryFlag code={countryLeft?.code} />
-        <label data-tooltip={countryLeft?.name}>{countryLeft?.code}</label>
+        <label data-tooltip={countryLeft?.name}>{countryLeft?.shortName}</label>
       </div>
       <div className={styles.centerContainer}>
         <div className={styles.inputsContainer}>
@@ -230,7 +230,7 @@ export function DailyMatchInput(
         </div>
       </div>
       <div className={styles.rightTeam}>
-        <label data-tooltip={countryRight?.name}>{countryRight?.code}</label>
+        <label data-tooltip={countryRight?.name}>{countryRight?.shortName}</label>
         <CountryFlag code={countryRight?.code} />
       </div>
       <div

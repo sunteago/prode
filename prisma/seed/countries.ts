@@ -13,7 +13,7 @@ export const COUNTRIES: CountrySeed[] = [
   { name: "República Checa", code: "CZE" },
   { name: "Sudáfrica", code: "RSA" },
   // Group B
-  { name: "Suiza", code: "CHE" },
+  { name: "Suiza", code: "SUI" },
   { name: "Canadá", code: "CAN" },
   { name: "Bosnia y Herzegovina", code: "BIH" },
   { name: "Catar", code: "QAT" },
@@ -28,12 +28,12 @@ export const COUNTRIES: CountrySeed[] = [
   { name: "Australia", code: "AUS" },
   { name: "Turquía", code: "TUR" },
   // Group E
-  { name: "Alemania", code: "DEU" },
+  { name: "Alemania", code: "GER" },
   { name: "Costa de Marfil", code: "CIV" },
   { name: "Ecuador", code: "ECU" },
   { name: "Curazao", code: "CUW" },
   // Group F
-  { name: "Países Bajos", code: "NLD" },
+  { name: "Países Bajos", code: "NED" },
   { name: "Japón", code: "JPN" },
   { name: "Túnez", code: "TUN" },
   { name: "Suecia", code: "SWE" },
@@ -45,7 +45,7 @@ export const COUNTRIES: CountrySeed[] = [
   // Group H
   { name: "España", code: "ESP" },
   { name: "Cabo Verde", code: "CPV" },
-  { name: "Arabia Saudita", code: "SAU" },
+  { name: "Arabia Saudita", code: "KSA" },
   { name: "Uruguay", code: "URU" },
   // Group I
   { name: "Francia", code: "FRA" },
@@ -58,13 +58,13 @@ export const COUNTRIES: CountrySeed[] = [
   { name: "Austria", code: "AUT" },
   { name: "Jordania", code: "JOR" },
   // Group K
-  { name: "Portugal", code: "PRT" },
+  { name: "Portugal", code: "POR" },
   { name: "Colombia", code: "COL" },
   { name: "Uzbekistán", code: "UZB" },
   { name: "República Democrática del Congo", code: "COD" },
   // Group L
   { name: "Inglaterra", code: "ENG" },
-  { name: "Croacia", code: "HRV" },
+  { name: "Croacia", code: "CRO" },
   { name: "Ghana", code: "GHA" },
   { name: "Panamá", code: "PAN" },
 ];

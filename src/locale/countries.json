@@ -1,58 +1,438 @@
 {
+  "es": {
+    "GER": {
+      "short": "GER",
+      "long": "ALEMANIA"
+    },
+    "ARG": {
+      "short": "ARG",
+      "long": "ARGENTINA"
+    },
+    "KSA": {
+      "short": "KSA",
+      "long": "ARABIA SAUDITA"
+    },
+    "AUS": {
+      "short": "AUS",
+      "long": "AUSTRALIA"
+    },
+    "BEL": {
+      "short": "BEL",
+      "long": "BÉLGICA"
+    },
+    "BRA": {
+      "short": "BRA",
+      "long": "BRASIL"
+    },
+    "CMR": {
+      "short": "CMR",
+      "long": "CAMERÚN"
+    },
+    "CAN": {
+      "short": "CAN",
+      "long": "CANADÁ"
+    },
+    "QAT": {
+      "short": "QAT",
+      "long": "QATAR"
+    },
+    "KOR": {
+      "short": "KOR",
+      "long": "COREA DEL SUR"
+    },
+    "CRI": {
+      "short": "CRI",
+      "long": "COSTA RICA"
+    },
+    "CRO": {
+      "short": "CRO",
+      "long": "CROACIA"
+    },
+    "DNK": {
+      "short": "DNK",
+      "long": "DINAMARCA"
+    },
+    "ECU": {
+      "short": "ECU",
+      "long": "ECUADOR"
+    },
+    "USA": {
+      "short": "USA",
+      "long": "ESTADOS UNIDOS"
+    },
+    "ESP": {
+      "short": "ESP",
+      "long": "ESPAÑA"
+    },
+    "FRA": {
+      "short": "FRA",
+      "long": "FRANCIA"
+    },
+    "GBR.4": {
+      "short": "GAL",
+      "long": "GALES"
+    },
+    "GHA": {
+      "short": "GHA",
+      "long": "GHANA"
+    },
+    "ENG": {
+      "short": "ENG",
+      "long": "INGLATERRA"
+    },
+    "IRN": {
+      "short": "IRN",
+      "long": "IRÁN"
+    },
+    "JPN": {
+      "short": "JPN",
+      "long": "JAPÓN"
+    },
+    "MAR": {
+      "short": "MAR",
+      "long": "MARRUECOS"
+    },
+    "MEX": {
+      "short": "MEX",
+      "long": "MÉXICO"
+    },
+    "NED": {
+      "short": "NED",
+      "long": "PAÍSES BAJOS"
+    },
+    "POL": {
+      "short": "POL",
+      "long": "POLONIA"
+    },
+    "POR": {
+      "short": "POR",
+      "long": "PORTUGAL"
+    },
+    "SEN": {
+      "short": "SEN",
+      "long": "SENEGAL"
+    },
+    "SRB": {
+      "short": "SRB",
+      "long": "SERBIA"
+    },
+    "SUI": {
+      "short": "SUI",
+      "long": "SUIZA"
+    },
+    "TUN": {
+      "short": "TUN",
+      "long": "TÚNEZ"
+    },
+    "URU": {
+      "short": "URU",
+      "long": "URUGUAY"
+    },
+    "ALG": {
+      "short": "ALG",
+      "long": "ARGELIA"
+    },
+    "AUT": {
+      "short": "AUT",
+      "long": "AUSTRIA"
+    },
+    "BIH": {
+      "short": "BIH",
+      "long": "BOSNIA"
+    },
+    "CIV": {
+      "short": "CIV",
+      "long": "COSTA DE MARFIL"
+    },
+    "COD": {
+      "short": "COD",
+      "long": "CONGO (RDC)"
+    },
+    "COL": {
+      "short": "COL",
+      "long": "COLOMBIA"
+    },
+    "CPV": {
+      "short": "CPV",
+      "long": "CABO VERDE"
+    },
+    "CUW": {
+      "short": "CUW",
+      "long": "CURAZAO"
+    },
+    "CZE": {
+      "short": "CZE",
+      "long": "CHEQUIA"
+    },
+    "EGY": {
+      "short": "EGY",
+      "long": "EGIPTO"
+    },
+    "HAI": {
+      "short": "HAI",
+      "long": "HAITÍ"
+    },
+    "IRQ": {
+      "short": "IRQ",
+      "long": "IRAK"
+    },
+    "JOR": {
+      "short": "JOR",
+      "long": "JORDANIA"
+    },
+    "NOR": {
+      "short": "NOR",
+      "long": "NORUEGA"
+    },
+    "NZL": {
+      "short": "NZL",
+      "long": "NUEVA ZELANDA"
+    },
+    "PAN": {
+      "short": "PAN",
+      "long": "PANAMÁ"
+    },
+    "PAR": {
+      "short": "PAR",
+      "long": "PARAGUAY"
+    },
+    "RSA": {
+      "short": "RSA",
+      "long": "SUDÁFRICA"
+    },
+    "SCO": {
+      "short": "SCO",
+      "long": "ESCOCIA"
+    },
+    "SWE": {
+      "short": "SWE",
+      "long": "SUECIA"
+    },
+    "TUR": {
+      "short": "TUR",
+      "long": "TURQUÍA"
+    },
+    "UZB": {
+      "short": "UZB",
+      "long": "UZBEKISTÁN"
+    }
+  },
   "en": {
-    "DEU": "GERMANY",
-    "ARG": "ARGENTINA",
-    "SAU": "S. ARABIA",
-    "AUS": "AUSTRALIA",
-    "BEL": "BELGIUM",
-    "BRA": "BRAZIL",
-    "CMR": "CAMEROON",
-    "CAN": "CANADA",
-    "QAT": "QATAR",
-    "KOR": "S. KOREA",
-    "CRI": "COSTA RICA",
-    "HRV": "CROATIA",
-    "DNK": "DENMARK",
-    "ECU": "ECUADOR",
-    "USA": "EEUU",
-    "ESP": "SPAIN",
-    "FRA": "FRANCE",
-    "GBR.4": "WALES",
-    "GHA": "GHANA",
-    "ENG": "ENGLAND",
-    "IRN": "IRAN",
-    "JPN": "JAPAN",
-    "MAR": "MOROCCO",
-    "MEX": "MEXICO",
-    "NLD": "NETHER..",
-    "POL": "POLAND",
-    "PRT": "PORTUGAL",
-    "SEN": "SENEGAL",
-    "SRB": "SERBIA",
-    "CHE": "SWITZER...",
-    "TUN": "TUNISIA",
-    "URU": "URUGUAY",
-    "ALG": "ALGERIA",
-    "AUT": "AUSTRIA",
-    "BIH": "BOSNIA",
-    "CIV": "IVORY C.",
-    "COD": "DR CONGO",
-    "COL": "COLOMBIA",
-    "CPV": "CAPE V.",
-    "CUW": "CURACAO",
-    "CZE": "CZECHIA",
-    "EGY": "EGYPT",
-    "HAI": "HAITI",
-    "IRQ": "IRAQ",
-    "JOR": "JORDAN",
-    "NOR": "NORWAY",
-    "NZL": "N. ZEALAND",
-    "PAN": "PANAMA",
-    "PAR": "PARAGUAY",
-    "RSA": "S. AFRICA",
-    "SCO": "SCOTLAND",
-    "SWE": "SWEDEN",
-    "TUR": "TURKEY",
-    "UZB": "UZBEKIST."
+    "GER": {
+      "short": "GER",
+      "long": "GERMANY"
+    },
+    "ARG": {
+      "short": "ARG",
+      "long": "ARGENTINA"
+    },
+    "KSA": {
+      "short": "KSA",
+      "long": "SAUDI ARABIA"
+    },
+    "AUS": {
+      "short": "AUS",
+      "long": "AUSTRALIA"
+    },
+    "BEL": {
+      "short": "BEL",
+      "long": "BELGIUM"
+    },
+    "BRA": {
+      "short": "BRA",
+      "long": "BRAZIL"
+    },
+    "CMR": {
+      "short": "CMR",
+      "long": "CAMEROON"
+    },
+    "CAN": {
+      "short": "CAN",
+      "long": "CANADA"
+    },
+    "QAT": {
+      "short": "QAT",
+      "long": "QATAR"
+    },
+    "KOR": {
+      "short": "KOR",
+      "long": "SOUTH KOREA"
+    },
+    "CRI": {
+      "short": "CRI",
+      "long": "COSTA RICA"
+    },
+    "CRO": {
+      "short": "CRO",
+      "long": "CROATIA"
+    },
+    "DNK": {
+      "short": "DNK",
+      "long": "DENMARK"
+    },
+    "ECU": {
+      "short": "ECU",
+      "long": "ECUADOR"
+    },
+    "USA": {
+      "short": "USA",
+      "long": "UNITED STATES"
+    },
+    "ESP": {
+      "short": "ESP",
+      "long": "SPAIN"
+    },
+    "FRA": {
+      "short": "FRA",
+      "long": "FRANCE"
+    },
+    "GBR.4": {
+      "short": "WAL",
+      "long": "WALES"
+    },
+    "GHA": {
+      "short": "GHA",
+      "long": "GHANA"
+    },
+    "ENG": {
+      "short": "ENG",
+      "long": "ENGLAND"
+    },
+    "IRN": {
+      "short": "IRN",
+      "long": "IRAN"
+    },
+    "JPN": {
+      "short": "JPN",
+      "long": "JAPAN"
+    },
+    "MAR": {
+      "short": "MAR",
+      "long": "MOROCCO"
+    },
+    "MEX": {
+      "short": "MEX",
+      "long": "MEXICO"
+    },
+    "NED": {
+      "short": "NED",
+      "long": "NETHERLANDS"
+    },
+    "POL": {
+      "short": "POL",
+      "long": "POLAND"
+    },
+    "POR": {
+      "short": "POR",
+      "long": "PORTUGAL"
+    },
+    "SEN": {
+      "short": "SEN",
+      "long": "SENEGAL"
+    },
+    "SRB": {
+      "short": "SRB",
+      "long": "SERBIA"
+    },
+    "SUI": {
+      "short": "SUI",
+      "long": "SWITZERLAND"
+    },
+    "TUN": {
+      "short": "TUN",
+      "long": "TUNISIA"
+    },
+    "URU": {
+      "short": "URU",
+      "long": "URUGUAY"
+    },
+    "ALG": {
+      "short": "ALG",
+      "long": "ALGERIA"
+    },
+    "AUT": {
+      "short": "AUT",
+      "long": "AUSTRIA"
+    },
+    "BIH": {
+      "short": "BIH",
+      "long": "BOSNIA"
+    },
+    "CIV": {
+      "short": "CIV",
+      "long": "IVORY COAST"
+    },
+    "COD": {
+      "short": "COD",
+      "long": "DR CONGO"
+    },
+    "COL": {
+      "short": "COL",
+      "long": "COLOMBIA"
+    },
+    "CPV": {
+      "short": "CPV",
+      "long": "CAPE VERDE"
+    },
+    "CUW": {
+      "short": "CUW",
+      "long": "CURACAO"
+    },
+    "CZE": {
+      "short": "CZE",
+      "long": "CZECHIA"
+    },
+    "EGY": {
+      "short": "EGY",
+      "long": "EGYPT"
+    },
+    "HAI": {
+      "short": "HAI",
+      "long": "HAITI"
+    },
+    "IRQ": {
+      "short": "IRQ",
+      "long": "IRAQ"
+    },
+    "JOR": {
+      "short": "JOR",
+      "long": "JORDAN"
+    },
+    "NOR": {
+      "short": "NOR",
+      "long": "NORWAY"
+    },
+    "NZL": {
+      "short": "NZL",
+      "long": "NEW ZEALAND"
+    },
+    "PAN": {
+      "short": "PAN",
+      "long": "PANAMA"
+    },
+    "PAR": {
+      "short": "PAR",
+      "long": "PARAGUAY"
+    },
+    "RSA": {
+      "short": "RSA",
+      "long": "SOUTH AFRICA"
+    },
+    "SCO": {
+      "short": "SCO",
+      "long": "SCOTLAND"
+    },
+    "SWE": {
+      "short": "SWE",
+      "long": "SWEDEN"
+    },
+    "TUR": {
+      "short": "TUR",
+      "long": "TURKEY"
+    },
+    "UZB": {
+      "short": "UZB",
+      "long": "UZBEKISTAN"
+    }
   }
 }

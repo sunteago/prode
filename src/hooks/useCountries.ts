@@ -10,7 +10,8 @@ export function useCountries() {
       getCountries().then((countries) => {
         return countries.map((country) => ({
           ...country,
-          name: i18n(country.code, country.name),
+          name: i18n.long(country.code, country.name),
+          shortName: i18n.short(country.code),
         }));
       }),
   });

@@ -6,9 +6,9 @@
  *
  * Safe to re-run — skips countries that already have an externalId.
  *
- * ESPN identifies teams by a numeric id and a 3-letter `abbreviation`. Most of
- * those abbreviations match our Country.code exactly; the few that don't are
- * remapped below. Matching on code (not display name) keeps this robust against
+ * ESPN identifies teams by a numeric id and a 3-letter `abbreviation`. Our
+ * Country.code uses the same FIFA abbreviations, so they match directly.
+ * Matching on code (not display name) keeps this robust against
  * Spanish/English name differences and ESPN's spelling variants (Czechia,
  * Türkiye, Curaçao, etc.).
  */
@@ -17,16 +17,6 @@ import { PrismaClient } from "../../src/generated/prisma";
 import { fetchTeams } from "../../src/lib/espn/client";
 
 const WC_SEASON = 2026;
-
-// ESPN abbreviation -> our Country.code, only where they differ.
-const ABBR_OVERRIDES: Record<string, string> = {
-  CRO: "HRV",
-  GER: "DEU",
-  NED: "NLD",
-  POR: "PRT",
-  KSA: "SAU",
-  SUI: "CHE",
-};
 
 async function main() {
   const prisma = new PrismaClient();
@@ -45,7 +35,7 @@ async function main() {
       const abbr = team.abbreviation?.toUpperCase();
       if (!abbr || !team.id) continue;
 
-      const code = ABBR_OVERRIDES[abbr] ?? abbr;
+      const code = abbr;
       const country = byCode.get(code);
 
       if (!country) {
@@ -72,7 +62,7 @@ async function main() {
 
     console.log(`\nLinked: ${linked}`);
     if (notFound.length) {
-      console.warn(`Not matched (check ABBR_OVERRIDES / countries.ts):`);
+      console.warn(`Not matched (check countries.ts codes vs ESPN abbreviations):`);
       notFound.forEach((n) => console.warn(`  - ${n}`));
     }
   } finally {

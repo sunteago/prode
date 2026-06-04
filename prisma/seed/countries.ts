@@ -1,16 +1,22 @@
 import { PrismaClient } from "@/generated/prisma";
 
-const COUNTRIES: { name: string; code: string }[] = [
+// `name` is the Spanish display name (unique, user-facing).
+// `code` is the stable internal key used by the fixture seed and by the ESPN
+// externalId linking script (prisma/seed/espn-countries.ts), which maps ESPN's
+// 3-letter team abbreviation to this code.
+export type CountrySeed = { name: string; code: string };
+
+export const COUNTRIES: CountrySeed[] = [
   // Group A
   { name: "México", code: "MEX" },
-  { name: "Rep. Corea", code: "KOR" },
-  { name: "Rep. Checa", code: "CZE" },
+  { name: "Corea del Sur", code: "KOR" },
+  { name: "República Checa", code: "CZE" },
   { name: "Sudáfrica", code: "RSA" },
   // Group B
   { name: "Suiza", code: "CHE" },
   { name: "Canadá", code: "CAN" },
-  { name: "Bosnia", code: "BIH" },
-  { name: "Qatar", code: "QAT" },
+  { name: "Bosnia y Herzegovina", code: "BIH" },
+  { name: "Catar", code: "QAT" },
   // Group C
   { name: "Brasil", code: "BRA" },
   { name: "Escocia", code: "SCO" },
@@ -23,7 +29,7 @@ const COUNTRIES: { name: string; code: string }[] = [
   { name: "Turquía", code: "TUR" },
   // Group E
   { name: "Alemania", code: "DEU" },
-  { name: "C. de Marfil", code: "CIV" },
+  { name: "Costa de Marfil", code: "CIV" },
   { name: "Ecuador", code: "ECU" },
   { name: "Curazao", code: "CUW" },
   // Group F
@@ -45,7 +51,7 @@ const COUNTRIES: { name: string; code: string }[] = [
   { name: "Francia", code: "FRA" },
   { name: "Senegal", code: "SEN" },
   { name: "Noruega", code: "NOR" },
-  { name: "Iraq", code: "IRQ" },
+  { name: "Irak", code: "IRQ" },
   // Group J
   { name: "Argentina", code: "ARG" },
   { name: "Argelia", code: "ALG" },
@@ -55,7 +61,7 @@ const COUNTRIES: { name: string; code: string }[] = [
   { name: "Portugal", code: "PRT" },
   { name: "Colombia", code: "COL" },
   { name: "Uzbekistán", code: "UZB" },
-  { name: "RD Congo", code: "COD" },
+  { name: "República Democrática del Congo", code: "COD" },
   // Group L
   { name: "Inglaterra", code: "ENG" },
   { name: "Croacia", code: "HRV" },

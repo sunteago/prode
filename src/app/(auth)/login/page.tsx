@@ -3,12 +3,10 @@ import React from "react";
 import { BrandLogo } from "@/components/common/BrandLogo";
 import { Layout, Footer, Container } from "@/layout";
 import { Button } from "@/components/common/Button";
-import { HomeTitle } from "@/components/common/HomeTitle";
 import Image from "next/image";
 import { Register } from "@/components/view/Index";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { LocaleSelect } from "@/components/common/LocaleSelect";
 import styles from "./page.module.scss";
 
 export default function LoginPage() {
@@ -33,10 +31,10 @@ export default function LoginPage() {
             alt="FIFA World Cup 2026"
             width={279}
             height={430}
-            style={{ height: '320px', width: 'auto', borderRadius: '20px' }}
+            style={{ height: '200px', width: 'auto', borderRadius: '16px' }}
           />
         </div>
-        <HomeTitle>Prode</HomeTitle>
+        <h1 className={styles.title}>Prode</h1>
         <p className={styles.subtitle}>(SPORTS LOTTERY)</p>
         {session.status !== "authenticated" && (
           <Register authError={error ?? undefined} />
@@ -45,9 +43,8 @@ export default function LoginPage() {
           <Button href="/rooms">Entrar</Button>
         )}
       </Container>
-      <Footer dark>
+      <Footer dark className={styles.footer}>
         <BrandLogo />
-        <LocaleSelect />
       </Footer>
     </Layout>
   );

@@ -27,7 +27,7 @@ export default function LoginPage() {
   return (
     <Layout>
       <Container direction="COL">
-        <Image src="/wc2026-trophy.png" alt="FIFA World Cup 2026" width={200} height={280} />
+        <Image src="/wc2026-trophy.png" alt="FIFA World Cup 2026" width={115} height={289} style={{ height: '250px', width: 'auto' }} />
         <HomeTitle>Prode</HomeTitle>
         <p className={styles.subtitle}>(SPORTS LOTTERY)</p>
         {session.status === "unauthenticated" && (

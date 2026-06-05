@@ -1,13 +1,12 @@
+.loginContainer {
+  flex: 1;
+  justify-content: center;
+}
+
 .hero {
   display: flex;
   justify-content: center;
   margin-bottom: 1.5rem;
-}
-
-.heroLogo {
-  border-radius: 20px;
-  height: 280px;
-  width: auto;
 }
 
 .subtitle {

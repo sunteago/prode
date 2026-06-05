@@ -26,19 +26,19 @@ export default function LoginPage() {
 
   return (
     <Layout>
-      <Container direction="COL">
+      <Container direction="COL" className={styles.loginContainer}>
         <div className={styles.hero}>
           <Image
             src="/mundial_2026.png"
             alt="FIFA World Cup 2026"
             width={279}
             height={430}
-            className={styles.heroLogo}
+            style={{ height: '320px', width: 'auto', borderRadius: '20px' }}
           />
         </div>
         <HomeTitle>Prode</HomeTitle>
         <p className={styles.subtitle}>(SPORTS LOTTERY)</p>
-        {session.status === "unauthenticated" && (
+        {session.status !== "authenticated" && (
           <Register authError={error ?? undefined} />
         )}
         {session.status === "authenticated" && (

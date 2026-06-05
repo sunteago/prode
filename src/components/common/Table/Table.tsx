@@ -35,6 +35,7 @@ export function Table<T>(props: React.PropsWithChildren<TableProps<T>>) {
           {props.columns.map((col, index) => (
             <th
               key={index}
+              scope="col"
               style={{ width: col.width }}
               className={className(
                 col.align ? styles[col.align] : "",

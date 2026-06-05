@@ -1,0 +1,16 @@
+@use 'styles/tokens' as t;
+
+.ctaRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 0 12px;
+  gap: 12px;
+}
+
+.divider {
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  opacity: 0.8;
+}

@@ -23,9 +23,11 @@ import { Warning } from "@/components/common/Warning";
 import { LocaleSelect } from "@/components/common/LocaleSelect";
 import { useLocalizedText } from "@/locale";
 import { useQuery } from "@tanstack/react-query";
+import styles from "./rooms.module.scss";
 
 interface RoomsData {
   finalsStarted: boolean;
+  prodeEnd?: string | null;
   rooms: (Pick<ProdeRoom, "id" | "name"> & {
     hasPassword?: boolean;
     playerCount: number;
@@ -83,7 +85,7 @@ export default function RoomsPage() {
   return (
     <Layout>
       <Meta />
-      <DesktopHeader userRanking={props?.userRanking}>
+      <DesktopHeader userRanking={props?.userRanking} prodeEnd={props?.prodeEnd}>
         {props && props.registeredProdes <= 1 && (
           <Button invert href="/">
             {props?.finalsStarted
@@ -91,9 +93,6 @@ export default function RoomsPage() {
               : i18n.buttonLabelGroupPhase}
           </Button>
         )}
-        <Button invert href="/new-prode">
-          {i18n.buttonLabelCreateRoom}
-        </Button>
       </DesktopHeader>
       <MobileHeader
         finalsStarted={props?.finalsStarted}
@@ -103,6 +102,12 @@ export default function RoomsPage() {
       />
       <Warning>{i18n.roomsWarning}</Warning>
       <Container full>
+        <div className={styles.ctaRow}>
+          <Button href="/new-prode">
+            {i18n.buttonLabelCreateRoom}
+          </Button>
+          <span className={styles.divider}>o</span>
+        </div>
         <Card title={i18n.roomsProdeListTitle}>
           <CardContent>
             <Table
@@ -129,7 +134,6 @@ export default function RoomsPage() {
                 {
                   header: "",
                   align: "RIGHT",
-                  width: "250px",
                   accesor: (row) => (
                     <div
                       style={{ display: "flex", placeContent: "center end" }}

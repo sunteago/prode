@@ -54,6 +54,9 @@ export function RoomWelcomeBar(
     (props.userRanking.points || props.userRanking.points === 0) &&
     (props.userRanking.ranking || props.userRanking.ranking === 0);
 
+  // Room pages always show the room name (or nothing). The deadline subtitle
+  // from WelcomeBar is a /rooms concept and must never appear here, so we pass
+  // an explicit subtitle (an empty fragment when there is no room name).
   const subtitle = props.name ? (
     <span className={styles.roomName}>
       {i18n.headerRoom}
@@ -64,17 +67,13 @@ export function RoomWelcomeBar(
         </ButtonIcon>
       ) : null}
     </span>
-  ) : undefined;
+  ) : (
+    <></>
+  );
 
   return (
     <>
-      <WelcomeBar
-        title={i18n.headerTitle}
-        subtitle={subtitle}
-        deadlinePre={i18n.headerWelcomeLine1}
-        deadlinePost={i18n.headerWelcomeLine2}
-        prodeEnd={props.prodeEnd}
-      >
+      <WelcomeBar title={i18n.headerTitle} subtitle={subtitle}>
         <div className={styles.controls}>
           {props.children}
           {hasIndicators && (

@@ -2,7 +2,7 @@
 import React from "react";
 import { Match, ProdeRoom, User } from "@/generated/prisma";
 import { BrandLogo } from "@/components/common/BrandLogo";
-import { DesktopHeader, MobileHeader } from "@/components/common/Header";
+import { RoomWelcomeBar } from "@/components/common/Header";
 import { MatchInput } from "@/components/common/MatchInput";
 import {
   Layout,
@@ -109,25 +109,12 @@ export default function ViewPage() {
     <Layout>
       <Meta />
       {props?.userRanking && (
-        <DesktopHeader
+        <RoomWelcomeBar
           id={props.id}
           name={props.name}
           room={props.room}
           userRanking={props.userRanking}
           roomAdmin={props.roomAdmin}
-        />
-      )}
-      {props?.userRanking && (
-        <MobileHeader
-          list
-          id={props.id}
-          name={props.name}
-          room={props.room}
-          finalsStarted={props.finalsStarted}
-          userRanking={props.userRanking}
-          roomAdmin={props.roomAdmin}
-          groups={props.userInRoom}
-          finals={props.userInRoom}
         />
       )}
       <Container full>

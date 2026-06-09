@@ -3,7 +3,7 @@ import React from "react";
 import { Match, ProdeRoom, Stage, User } from "@/generated/prisma";
 import { BrandLogo } from "@/components/common/BrandLogo";
 import { Button } from "@/components/common/Button";
-import { DesktopHeader, MobileHeader } from "@/components/common/Header";
+import { RoomWelcomeBar } from "@/components/common/Header";
 import { Table } from "@/components/common/Table";
 import { UserPositionDisplay } from "@/components/common/UserPositionDisplay";
 import { UserRankingDisplay } from "@/components/common/UserRankingDisplay";
@@ -210,7 +210,7 @@ export default function RoomFinalsPage() {
   return (
     <Layout>
       <Meta />
-      <DesktopHeader
+      <RoomWelcomeBar
         id={props?.id}
         name={props?.name}
         room={props?.room}
@@ -219,19 +219,7 @@ export default function RoomFinalsPage() {
       >
         <Button invert href={`/rooms`}>{i18n.buttonLabelProdeList}</Button>
         <Button invert href={`/${id}/groups`}>{i18n.buttonLabelGroupPhase}</Button>
-      </DesktopHeader>
-      <MobileHeader
-        list
-        id={id}
-        name={props?.name}
-        room={props?.room}
-        finalsStarted={true}
-        userRanking={props?.userRanking}
-        roomAdmin={props?.roomAdmin}
-        groups={true}
-        finals={true}
-        shareUserProdeId={props?.userProdeId}
-      />
+      </RoomWelcomeBar>
       {props?.room && <FinalsResultsWarning roomConfig={props.room} />}
       <Container full>
         <FinalsContainer>

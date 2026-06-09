@@ -3,7 +3,7 @@ import React from "react";
 import { ProdeRoom, User } from "@/generated/prisma";
 import { BrandLogo } from "@/components/common/BrandLogo";
 import { Button } from "@/components/common/Button";
-import { DesktopHeader, MobileHeader } from "@/components/common/Header";
+import { RoomWelcomeBar } from "@/components/common/Header";
 import { Pagination, Table } from "@/components/common/Table";
 import { UserPositionDisplay } from "@/components/common/UserPositionDisplay";
 import { UserRankingDisplay } from "@/components/common/UserRankingDisplay";
@@ -106,7 +106,7 @@ export default function RankingPage() {
   return (
     <Layout>
       <Meta />
-      <DesktopHeader
+      <RoomWelcomeBar
         id={props?.id}
         name={props?.name}
         room={props?.room}
@@ -125,19 +125,7 @@ export default function RankingPage() {
             {i18n.buttonLabelGroupPhase}
           </Button>
         )}
-      </DesktopHeader>
-      <MobileHeader
-        list
-        id={id}
-        finalsStarted={props?.finalsStarted}
-        name={props?.name}
-        room={props?.room}
-        userRanking={props?.userRanking}
-        roomAdmin={props?.roomAdmin}
-        groups={true}
-        finals={true}
-        shareUserProdeId={props?.userProdeId}
-      />
+      </RoomWelcomeBar>
       <Container full direction="COL">
         <ContainerHeader
           sticky

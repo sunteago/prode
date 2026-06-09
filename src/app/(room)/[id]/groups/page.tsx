@@ -3,7 +3,7 @@ import React from "react";
 import { Match, ProdeRoom, User } from "@/generated/prisma";
 import { BrandLogo } from "@/components/common/BrandLogo";
 import { Button } from "@/components/common/Button";
-import { DesktopHeader, MobileHeader } from "@/components/common/Header";
+import { RoomWelcomeBar } from "@/components/common/Header";
 import { MatchInput } from "@/components/common/MatchInput";
 import { Table } from "@/components/common/Table";
 import { UserPositionDisplay } from "@/components/common/UserPositionDisplay";
@@ -181,7 +181,7 @@ export default function RoomGroupsPage() {
   return (
     <Layout>
       <Meta />
-      <DesktopHeader
+      <RoomWelcomeBar
         id={props?.id}
         name={props?.name}
         room={props?.room}
@@ -194,19 +194,7 @@ export default function RoomGroupsPage() {
         <Button disabled={!props?.finalsStarted} invert href={`/${id}/finals`}>
           {i18n.buttonLabelFinalsPhase}
         </Button>
-      </DesktopHeader>
-      <MobileHeader
-        list
-        id={id}
-        name={props?.name}
-        room={props?.room}
-        finalsStarted={props?.finalsStarted}
-        userRanking={props?.userRanking}
-        roomAdmin={props?.roomAdmin}
-        groups={true}
-        finals={true}
-        shareUserProdeId={props?.userProdeId}
-      />
+      </RoomWelcomeBar>
       {props?.room && (
         <GroupsResultsWarning
           roomConfig={{

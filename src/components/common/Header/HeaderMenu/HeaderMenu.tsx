@@ -15,6 +15,7 @@ interface HeaderMenuProps {
   prodePublic?: boolean;
   dark?: boolean;
   background?: string;
+  compact?: boolean;
 }
 
 export function HeaderMenu(props: React.PropsWithChildren<HeaderMenuProps>) {
@@ -64,7 +65,7 @@ export function HeaderMenu(props: React.PropsWithChildren<HeaderMenuProps>) {
       data-testid="header-menu"
       onClick={handleOpen}
     >
-      <UserImage image={session?.data?.user?.image} />
+      <UserImage small={props.compact} image={session?.data?.user?.image} />
       <CogIcon className={styles.cogIcon} />
       {modalOpen && (
         <HeaderModal

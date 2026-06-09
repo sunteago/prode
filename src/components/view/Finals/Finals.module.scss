@@ -61,6 +61,23 @@
   gap: 12px;
   width: 100%;
   position: relative;
+
+  // Layered grays matching the groups page, deepening as the bracket funnels.
+  &.round16 {
+    --finals-card-bg: #f6f5f5;
+  }
+  &.round8 {
+    --finals-card-bg: #ededed;
+  }
+  &.round4 {
+    --finals-card-bg: #e1e1e1;
+  }
+  &.round2 {
+    --finals-card-bg: #e1e1e1;
+  }
+  &.roundFinal {
+    --finals-card-bg: #e1e1e1;
+  }
 }
 
 .bracketRoundTitle {

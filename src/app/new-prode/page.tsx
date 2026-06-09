@@ -1,11 +1,9 @@
 'use client'
 import React from "react";
 import { User } from "@/generated/prisma";
-import { BrandLogo } from "@/components/common/BrandLogo";
 import { WelcomeBar } from "@/components/common/Header/WelcomeBar";
 import {
   Layout,
-  Footer,
   Container,
   Card,
   CardContent,
@@ -25,7 +23,6 @@ import { useRouter } from "next/navigation";
 import { FormError } from "@/components/common/Form/FormError";
 import { formError } from "@/utils/errors";
 import { Meta } from "@/components/common/Meta";
-import { LocaleSelect } from "@/components/common/LocaleSelect";
 import { useLocalizedText } from "@/locale";
 import { useQuery } from "@tanstack/react-query";
 import styles from "./new-prode.module.scss";
@@ -209,10 +206,6 @@ export default function NewProdePage() {
           </CardContent>
         </Card>
       </Container>
-      <Footer>
-        <BrandLogo />
-        <LocaleSelect />
-      </Footer>
     </Layout>
   );
 }

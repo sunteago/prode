@@ -7,6 +7,10 @@ import type { FinalsStageGroup } from "@/utils/finals";
 // cannot peek at an early result before predicting a same-fecha match. Across
 // fechas, editing stays open ("ir completando fecha a fecha").
 //
+// Exception: fecha 1 is relaxed (see groupMatchLockTime in utils/date.ts). It
+// does NOT lock as a block; each fecha-1 match closes individually 1h before
+// its own kickoff. Fechas 2 and 3 keep the block-lock behavior above.
+//
 // Each entry is the first kickoff (UTC) of its fecha. Derived from the seeded
 // fixture (prisma/seed/fixture.ts): the 72 group matches split 24/24/24 across
 // these three boundaries with no overlap. If the fixture changes, re-verify.

@@ -3,7 +3,6 @@ import { groupMatchLockTime, isGroupMatchLocked } from "@/utils/date";
 import { GROUP_MATCHDAY_DEADLINES } from "@/config/matchdays";
 
 // Real WC 2026 fecha boundaries (UTC first kickoffs).
-const FECHA_1 = new Date("2026-06-11T19:00:00.000Z");
 const FECHA_2 = new Date("2026-06-18T16:00:00.000Z");
 const FECHA_3 = new Date("2026-06-24T19:00:00.000Z");
 
@@ -15,10 +14,18 @@ const F2_LATE = new Date("2026-06-19T01:00:00.000Z"); // a fecha-2 match a day l
 const F3_FIRST = new Date("2026-06-24T19:00:00.000Z");
 
 describe("groupMatchLockTime", () => {
-  it("maps a match to the first kickoff of its fecha", () => {
-    expect(groupMatchLockTime(F1_LATE, GROUP_MATCHDAY_DEADLINES)).toEqual(FECHA_1);
+  it("maps a fecha 2+ match to the first kickoff of its fecha", () => {
     expect(groupMatchLockTime(F2_LATE, GROUP_MATCHDAY_DEADLINES)).toEqual(FECHA_2);
     expect(groupMatchLockTime(F3_FIRST, GROUP_MATCHDAY_DEADLINES)).toEqual(FECHA_3);
+  });
+
+  it("locks each fecha 1 match individually 1h before its own kickoff", () => {
+    expect(groupMatchLockTime(F1_OPENER, GROUP_MATCHDAY_DEADLINES)).toEqual(
+      new Date("2026-06-11T18:00:00.000Z")
+    );
+    expect(groupMatchLockTime(F1_LATE, GROUP_MATCHDAY_DEADLINES)).toEqual(
+      new Date("2026-06-18T01:00:00.000Z")
+    );
   });
 
   it("treats a match starting exactly at a boundary as belonging to that fecha", () => {
@@ -52,6 +59,20 @@ describe("isGroupMatchLocked", () => {
     expect(isGroupMatchLocked(F1_OPENER, GROUP_MATCHDAY_DEADLINES, duringF1)).toBe(true);
     expect(isGroupMatchLocked(F2_FIRST, GROUP_MATCHDAY_DEADLINES, duringF1)).toBe(false);
     expect(isGroupMatchLocked(F3_FIRST, GROUP_MATCHDAY_DEADLINES, duringF1)).toBe(false);
+  });
+
+  it("locks fecha 1 matches individually, not as a block", () => {
+    // Opener has kicked off, but later fecha-1 matches stay open until 1h
+    // before their own kickoff.
+    const afterOpener = new Date("2026-06-11T19:30:00.000Z");
+    expect(isGroupMatchLocked(F1_OPENER, GROUP_MATCHDAY_DEADLINES, afterOpener)).toBe(true);
+    expect(isGroupMatchLocked(F1_LATE, GROUP_MATCHDAY_DEADLINES, afterOpener)).toBe(false);
+
+    // Each fecha-1 match locks exactly 1h before its kickoff.
+    const oneHourBeforeLate = new Date("2026-06-18T01:00:00.000Z");
+    expect(isGroupMatchLocked(F1_LATE, GROUP_MATCHDAY_DEADLINES, oneHourBeforeLate)).toBe(true);
+    const justBefore = new Date("2026-06-18T00:59:00.000Z");
+    expect(isGroupMatchLocked(F1_LATE, GROUP_MATCHDAY_DEADLINES, justBefore)).toBe(false);
   });
 
   it("locks everything once the last fecha has kicked off", () => {

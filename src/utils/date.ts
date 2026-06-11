@@ -19,24 +19,37 @@ function applyTimezoneOffset(date: Date, timezone?: string) {
   return newDate;
 }
 
+// Fecha 1 is relaxed: instead of the whole fecha locking at its first kickoff,
+// each fecha-1 match closes individually this long before its own kickoff.
+const FECHA_1_LOCK_OFFSET_MS = 60 * 60 * 1000;
+
 /**
  * The lock time of the matchday ("fecha") a group match belongs to: the
  * greatest deadline that is <= the match date. `deadlines` must be ascending
  * (see config/matchdays.ts). Returns null if the match starts before the first
  * deadline (should not happen for seeded data).
+ *
+ * Fecha 1 (the first deadline) is the exception: it does not lock as a block.
+ * Each fecha-1 match locks individually 1h before its own kickoff, so players
+ * can keep editing later same-fecha matches after the opener has started.
  */
 export function groupMatchLockTime(matchDate: Date, deadlines: Date[]) {
-  let lock: Date | null = null;
-  for (const deadline of deadlines) {
-    if (deadline.getTime() <= matchDate.getTime()) lock = deadline;
+  let lockIndex = -1;
+  for (let i = 0; i < deadlines.length; i++) {
+    if (deadlines[i].getTime() <= matchDate.getTime()) lockIndex = i;
     else break;
   }
-  return lock;
+  if (lockIndex === -1) return null;
+  if (lockIndex === 0) {
+    return new Date(matchDate.getTime() - FECHA_1_LOCK_OFFSET_MS);
+  }
+  return deadlines[lockIndex];
 }
 
 /**
- * True once the matchday containing `matchDate` has kicked off, i.e. its first
- * match has started. All matches of a fecha lock together at that moment.
+ * True once the lock time for `matchDate` has passed. For fechas 2+ this is the
+ * fecha's first kickoff (all its matches lock together); for fecha 1 it is 1h
+ * before the individual match's kickoff.
  */
 export function isGroupMatchLocked(
   matchDate: Date,

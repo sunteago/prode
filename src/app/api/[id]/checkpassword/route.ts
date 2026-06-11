@@ -33,8 +33,7 @@ export async function POST(req: NextRequest, context: { params: Promise<{ id: st
   const userIsRegistered = await isUserRegisteredToRoom(room, user)
   if (!userIsRegistered) {
     await registerUserToRoom(room, user)
-    return NextResponse.json({ allowed: true })
   }
 
-  return NextResponse.json({}, { status: 400 })
+  return NextResponse.json({ allowed: true })
 }

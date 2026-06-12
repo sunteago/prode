@@ -1,8 +1,20 @@
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vitest/config';
-import tsconfigPaths from 'vite-tsconfig-paths';
 
+// Path aliases are defined explicitly here rather than via vite-tsconfig-paths
+// because tsconfig.json excludes `tests` and `vitest.config.ts` from the Next.js
+// build type-check (those files import devDependencies pruned in prod installs).
+// The plugin only maps aliases for files inside the tsconfig project, so excluded
+// test files would lose `@/` and `@test/` resolution. These explicit aliases keep
+// resolution working regardless of tsconfig include/exclude. Keep them in sync
+// with compilerOptions.paths in tsconfig.json.
 export default defineConfig({
-  plugins: [tsconfigPaths()],
+  resolve: {
+    alias: [
+      { find: /^@test\//, replacement: fileURLToPath(new URL('./tests/', import.meta.url)) },
+      { find: /^@\//, replacement: fileURLToPath(new URL('./src/', import.meta.url)) },
+    ],
+  },
   test: {
     environment: 'node',
     globals: true,
